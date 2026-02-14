@@ -85,22 +85,25 @@ export default function About() {
       {/* <NavbarComponents /> */}
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[60vh] w-full items-center justify-center bg-slate-900 overflow-hidden">
-        <Image
-          src="/hero/image.png"
-          alt="Cybersecurity Background"
-          fill
-          className="object-cover opacity-40"
-          priority
-        />
-        <div className="relative z-10 px-6 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl tracking-tight"
-          >
-            Securing the Future of <span className="text-blue-500">Innovation</span>
-          </motion.h1>
+      {/* Hero Section */}
+<section className="relative flex min-h-[60vh] w-full items-center justify-center bg-slate-900 overflow-hidden">
+  {/* SWAPPED Image for img */}
+  <img
+    src="/hero/image .png "
+    alt="Cybersecurity Background"
+    className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+    loading="eager" 
+  />
+  
+  <div className="relative z-10 px-6 text-center">
+    <motion.h1 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl tracking-tight"
+    >
+      Securing the Future of <span className="text-blue-500">Innovation</span>
+    </motion.h1>
+    {/* ... rest of your code */}
           <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 leading-relaxed">
             ShillyBrittle Innovations is Maryland’s premier cybersecurity partner, 
             defending enterprise infrastructure with intelligence-driven solutions.
@@ -243,21 +246,20 @@ export default function About() {
               {/* Blue Glow Behind Photo */}
               <div className="absolute -inset-2 bg-blue-600/20 rounded-full blur-xl group-hover:bg-blue-600/40 transition-all duration-500"></div>
               
-              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-slate-800 flex items-center justify-center overflow-hidden border-4 border-slate-900 shadow-2xl">
-                {testimonials[index].image ? (
-                  <Image
-                    src={testimonials[index].image}
-                    alt={testimonials[index].name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                ) : (
-                  /* Fallback if no image path exists in the data */
-                  <div className="w-full h-full flex items-center justify-center text-4xl font-black text-white bg-gradient-to-br from-blue-600 to-blue-900">
-                    {testimonials[index].initials}
-                  </div>
-                )}
-              </div>
+              {/* Inside the Testimonial Slider Photo Holder */}
+<div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-slate-800 flex items-center justify-center overflow-hidden border-4 border-slate-900 shadow-2xl">
+  {testimonials[index].image ? (
+    <img
+      src={testimonials[index].image}
+      alt={testimonials[index].name}
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+    />
+  ) : (
+    <div className="w-full h-full flex items-center justify-center text-4xl font-black text-white bg-gradient-to-br from-blue-600 to-blue-900">
+      {testimonials[index].initials}
+    </div>
+  )}
+</div>
 
               {/* Verification Badge Icon */}
               <div className="absolute bottom-2 right-2 bg-blue-600 p-2 rounded-full border-4 border-slate-900 shadow-lg">
