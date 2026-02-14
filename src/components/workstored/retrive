@@ -1,0 +1,203 @@
+
+// import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Send, Phone, Mail, MapPin, 
+  Clock, ShieldCheck, Globe, MessageSquare 
+} from "lucide-react";
+// import NavbarComponents from "@/components/Navbar/NavbarComponents";
+// import FooterComponents from "@/components/Footer/FooterComponents"
+
+// export default function Contact() {
+//   const [formState, setFormState] = useState("idle"); // idle | sending | success
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setFormState("sending");
+//     // Simulate API call
+//     setTimeout(() => setFormState("success"), 2000);
+//   };
+
+//   return (
+//     <>
+//     <div className="min-h-screen bg-slate-950 text-white font-sans">
+//       {/* <NavbarComponents /> */}
+
+//       {/* Header Section */}
+//       <section className="relative pt-32 pb-20 px-6 text-center overflow-hidden">
+//         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent -z-10"></div>
+        
+//         <motion.div 
+//           initial={{ opacity: 0, y: 20 }} 
+//           animate={{ opacity: 1, y: 0 }}
+//           className="max-w-4xl mx-auto"
+//         >
+//           <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase italic italic">
+//             Establish <span className="text-blue-500">Contact</span>
+//           </h1>
+//           <p className="mt-6 text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+//             Secure your infrastructure with Maryland's elite cybersecurity unit. 
+//             Initiate a briefing below to discuss your defensive requirements.
+//           </p>
+//         </motion.div>
+//       </section>
+
+//       <section className="max-w-7xl mx-auto px-6 pb-32">
+//         <div className="grid lg:grid-cols-12 gap-16 items-start">
+          
+//           {/* Left Side: Information Command */}
+//           <div className="lg:col-span-5 space-y-12">
+//             <div>
+//               <h2 className="text-2xl font-bold mb-8 border-l-4 border-blue-600 pl-4 uppercase tracking-widest">
+//                 Global Headquarters
+//               </h2>
+//               <div className="space-y-6">
+//                 <div className="flex items-start gap-4 group">
+//                   <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl group-hover:border-blue-500 transition-colors">
+//                     <MapPin className="text-blue-500" size={24} />
+//                   </div>
+//                   <div>
+//                     <h4 className="font-bold text-white uppercase text-sm">Maryland Office</h4>
+//                     <p className="text-gray-400">123 Security Plaza, Tech Corridor<br />Maryland, USA</p>
+//                   </div>
+//                 </div>
+
+//                 <div className="flex items-start gap-4 group">
+//                   <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl group-hover:border-blue-500 transition-colors">
+//                     <Phone className="text-blue-500" size={24} />
+//                   </div>
+//                   <div>
+//                     <h4 className="font-bold text-white uppercase text-sm">Priority Line</h4>
+//                     <p className="text-gray-400">+1 (301) SHILLY-B</p>
+//                   </div>
+//                 </div>
+
+//                 <div className="flex items-start gap-4 group">
+//                   <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl group-hover:border-blue-500 transition-colors">
+//                     <Mail className="text-blue-500" size={24} />
+//                   </div>
+//                   <div>
+//                     <h4 className="font-bold text-white uppercase text-sm">Secure Email</h4>
+//                     <p className="text-gray-400">uplink@shillybrittle.com</p>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* Support Metrics */}
+//             <div className="bg-blue-600/10 border border-blue-500/20 rounded-3xl p-8 space-y-6">
+//               <h3 className="font-bold text-blue-400 uppercase tracking-tight flex items-center gap-2">
+//                 <ShieldCheck size={20} /> Response Protocol
+//               </h3>
+//               <div className="grid grid-cols-2 gap-4">
+//                 <div className="text-center p-4 bg-slate-900/50 rounded-2xl">
+//                   <p className="text-2xl font-black text-white italic">{"<"}2h</p>
+//                   <p className="text-xs text-gray-500 uppercase">Initial Review</p>
+//                 </div>
+//                 <div className="text-center p-4 bg-slate-900/50 rounded-2xl">
+//                   <p className="text-2xl font-black text-white italic">24/7</p>
+//                   <p className="text-xs text-gray-500 uppercase">Threat Support</p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* Right Side: The Secure Uplink Form */}
+//           <div className="lg:col-span-7">
+//             <motion.div 
+//               initial={{ opacity: 0, x: 20 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               className="bg-slate-900 border border-slate-800 p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden"
+//             >
+//               {/* Form Status Overlay */}
+//               <AnimatePresence>
+//                 {formState === "success" && (
+//                   <motion.div 
+//                     initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+//                     className="absolute inset-0 z-20 bg-slate-900 flex flex-col items-center justify-center text-center p-6"
+//                   >
+//                     <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+//                       <ShieldCheck size={40} className="text-white" />
+//                     </div>
+//                     <h3 className="text-3xl font-bold text-white mb-2 tracking-tight">ENCRYPTED MESSAGE SENT</h3>
+//                     <p className="text-gray-400">Our cybersecurity analysts will review your uplink within 2 hours.</p>
+//                     <button onClick={() => setFormState("idle")} className="mt-8 text-blue-500 hover:text-white transition-colors uppercase text-sm font-bold">New Message</button>
+//                   </motion.div>
+//                 )}
+//               </AnimatePresence>
+
+//               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+//                 <div className="grid md:grid-cols-2 gap-6">
+//                   <div className="space-y-2">
+//                     <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Full Name</label>
+//                     <input 
+//                       required
+//                       className="w-full bg-slate-950 border border-slate-800 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" 
+//                       placeholder="shilly Brittle"
+//                     />
+//                   </div>
+//                   <div className="space-y-2">
+//                     <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Business Email</label>
+//                     <input 
+//                       required type="email"
+//                       className="w-full bg-slate-950 border border-slate-800 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" 
+//                       placeholder="shillybrittle@gmail.com"
+//                     />
+//                   </div>
+//                 </div>
+
+//                 <div className="space-y-2">
+//                   <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Subject / Interest Area</label>
+//                   <select className="w-full bg-slate-950 border border-slate-800 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-blue-500 transition-all appearance-none">
+//                     <option>Cybersecurity Audit</option>
+//                     <option>Staff Augmentation</option>
+//                     <option>Cloud Migration (FedRAMP)</option>
+//                     <option>Managed IT Services</option>
+//                   </select>
+//                 </div>
+
+//                 <div className="space-y-2">
+//                   <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Message Detail</label>
+//                   <textarea 
+//                     rows="5"
+//                     className="w-full bg-slate-950 border border-slate-800 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-blue-500 transition-all resize-none" 
+//                     placeholder="Describe your current challenge..."
+//                   ></textarea>
+//                 </div>
+
+//                 <button 
+//                   disabled={formState === "sending"}
+//                   className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-5 rounded-xl transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] flex items-center justify-center gap-3 uppercase tracking-widest"
+//                 >
+//                   {formState === "sending" ? (
+//                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+//                   ) : (
+//                     <>
+//                       <Send size={18} />
+//                       Transmit Uplink
+//                     </>
+//                   )}
+//                 </button>
+//               </form>
+//             </motion.div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Embedded Map Visual */}
+//       <section className="h-[500px] w-full bg-slate-900 border-t border-slate-800">
+//         <iframe
+//           title="Maryland HQ Location"
+//           src="http://googleusercontent.com/maps.google.com/3"
+//           width="100%"
+//           height="100%"
+//           style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.7)' }}
+//           allowFullScreen=""
+//           loading="lazy"
+//         ></iframe>
+//       </section>
+//     </div>
+//     {/* <FooterComponents /> */}
+//     </>
+//   );
+// }
