@@ -122,16 +122,18 @@
 
 
 "use client";
-import { Search, ChevronDown, Menu, X, Shield } from "lucide-react"; // Added Shield for logo
+import { Search, ChevronDown, Menu, X, Shield, Lock } from "lucide-react";
 import { useState } from "react";
 import React from "react";
 import Link from "next/link";
+
 
 const NavbarComponents = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const toggleDropdown = (dropdown) => {
     setActiveDropdown((prev) => (prev === dropdown ? null : dropdown));
@@ -169,9 +171,9 @@ const NavbarComponents = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
                 className="absolute top-full -left-4 mt-2 bg-slate-900 border border-slate-800 shadow-2xl rounded-xl w-64 p-4 space-y-1 animate-in fade-in slide-in-from-top-2"
               >
-                <Link href="#" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors border-b border-white/5">IT Consulting Services</Link>
-                <Link href="#" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors border-b border-white/5">IT Auditing</Link>
-                <Link href="#" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors">Risk Advisory</Link>
+                <Link href="/services/it-consulting" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors border-b border-white/5">IT Consulting Services</Link>
+                <Link href="/services/it-auditing" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors border-b border-white/5">IT Auditing</Link>
+                <Link href="/services/risk-advisory" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors">Risk Advisory</Link>
               </div>
             )}
           </li>
@@ -190,15 +192,26 @@ const NavbarComponents = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
                 className="absolute top-full -left-4 mt-2 bg-slate-900 border border-slate-800 shadow-2xl rounded-xl w-64 p-4 space-y-1 animate-in fade-in slide-in-from-top-2"
               >
-                <Link href="#" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors border-b border-white/5">Cybersecurity Training</Link>
-                <Link href="#" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors border-b border-white/5">Security Awareness</Link>
-                <Link href="#" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors">Incident Response</Link>
+                <Link href="/training/cybersecurity-training" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors border-b border-white/5">Cybersecurity Training</Link>
+                <Link href="/training/security-awareness" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors border-b border-white/5">Security Awareness</Link>
+                <Link href="/training/incident-response" className="block hover:bg-blue-600/10 p-3 rounded-lg transition-colors">Incident Response</Link>
               </div>
             )}
           </li>
 
           <li className="hover:text-blue-500 transition-colors"><Link href="/contact-us">CONTACT</Link></li>
           <li className="hover:text-blue-500 transition-colors"><Link href="/blog">BLOG</Link></li> 
+          <div className="flex items-center gap-6">
+  {/* Existing Nav Links... */}
+  
+            <Link 
+              href="/login" 
+              className="flex items-center gap-2 bg-blue-600/10 hover:bg-blue-600 text-blue-500 hover:text-white px-5 py-2.5 rounded-xl font-bold text-[10px] tracking-widest transition-all border border-blue-600/20"
+            >
+              <Lock size={12} />
+              PORTAL LOGIN
+            </Link>
+</div>
 
           {/* Search Toggle */}
           <li>

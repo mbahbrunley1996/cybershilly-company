@@ -294,10 +294,11 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Shield, ChevronRight, Activity, Terminal, Zap, 
-  Lock, Globe, Users, BarChart3, Search, ArrowUpRight, Clock, ShieldCheck 
+  Lock, Globe, Users, BarChart3, Search, ArrowUpRight, Clock, ShieldCheck, GraduationCap
+
 } from "lucide-react";
-// import NavbarComponents from "@/components/Navbar/NavbarComponents";
-// import FooterComponents from "@/components/Footer/FooterComponents";
+import Link from 'next/link';
+
 
 const HERO_IMAGES = [
   "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80",
@@ -349,7 +350,7 @@ export default function Home() {
 
   return (
     <div className="bg-slate-950 text-white min-h-screen selection:bg-blue-500 selection:text-white font-sans">
-      {/* <NavbarComponents /> */}
+     
 
       {/* 1. FRAGMENTED HERO SECTION */}
       <section className="relative h-screen flex flex-col lg:flex-row overflow-hidden border-b border-white/5">
@@ -387,6 +388,49 @@ export default function Home() {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* 4.5 NEW: THE ACADEMY (RECRUITMENT) */}
+<section className="py-32 px-6 bg-blue-600 relative overflow-hidden">
+  {/* Decorative background element */}
+  <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-950 skew-x-12 translate-x-32 z-0 hidden lg:block"></div>
+  
+  <div className="max-w-7xl mx-auto relative z-10">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/30 bg-white/10 text-white text-[10px] font-bold tracking-[0.2em] uppercase mb-8">
+          <GraduationCap size={14} /> Career Forge Now Active
+        </div>
+        <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter text-white leading-none mb-8">
+          Don't just watch <br /> the fight. <span className="text-slate-950">Join it.</span>
+        </h2>
+        <p className="text-blue-100 text-xl max-w-lg leading-relaxed font-medium mb-12">
+          We are recruiting the next generation of Cyber Warriors. Get hands-on training with elite tools and secure your place in the 2026 job market.
+        </p>
+        
+        {/* BUTTON THAT DIRECTS TO THE TRAINING PAGE */}
+       <Link href="/training-section">
+  <button className="bg-slate-950 hover:bg-white hover:text-slate-950 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-tighter transition-all flex items-center gap-4 group shadow-2xl">
+    Enter The Academy <ChevronRight size={20} className="group-hover:translate-x-2 transition-transform" />
+  </button>
+</Link>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        {[
+          { label: "Tools Mastered", val: "15+" },
+          { label: "Job Placement", val: "94%" },
+          { label: "Live Simulations", val: "Unlimited" },
+          { label: "Industry Mentor", val: "1-on-1" }
+        ].map((stat, i) => (
+          <div key={i} className="bg-slate-950/40 backdrop-blur-md border border-white/10 p-8 rounded-[2rem]">
+            <div className="text-4xl font-black text-white mb-1">{stat.val}</div>
+            <div className="text-[10px] font-bold uppercase tracking-widest text-blue-200">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* 2. PARTNER MARQUEE */}
       <section className="py-12 bg-slate-950 border-b border-white/5 overflow-hidden">
