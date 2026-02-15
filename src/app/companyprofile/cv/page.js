@@ -51,7 +51,7 @@ export default function CompanyProfile() {
               <div className="absolute -inset-4 bg-blue-600/10 rounded-[3rem] blur-2xl group-hover:bg-blue-600/20 transition-all"></div>
               <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] border-8 border-white shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" 
+                  src="/logo/cv photo.png" 
                   alt="Company Owner / Principal Consultant" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />

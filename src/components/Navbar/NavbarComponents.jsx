@@ -126,6 +126,7 @@ import { Search, ChevronDown, Menu, X, Shield, Lock } from "lucide-react";
 import { useState } from "react";
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion"
 
 
 const NavbarComponents = () => {
@@ -144,13 +145,44 @@ const NavbarComponents = () => {
     <nav className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 text-white">
       <div className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4">
 
-        {/* Logo - Matching the Bold/Italic style of the headers */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <Shield className="text-blue-500 group-hover:rotate-12 transition-transform" size={28} />
-          <h1 className="text-xl md:text-2xl font-black italic tracking-tighter uppercase">
-            Shilly<span className="text-blue-500">Brittle</span>
-          </h1>
-        </Link>
+       <Link href="/" className="flex items-center gap-4 group">
+  {/* 1. THE ICON */}
+  <Shield 
+    className="text-blue-500 group-hover:rotate-12 transition-transform duration-300" 
+    size={28} 
+  />
+
+  {/* 2. THE OWNER PHOTO (Rounded Placeholder) */}
+  <motion.div 
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="relative"
+  >
+    {/* HUD Glow behind the photo */}
+    <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+    
+    <div className="relative w-12 h-12 bg-slate-900 border border-white/10 rounded-full overflow-hidden shadow-xl">
+      <img 
+        src="/logo/logo 1.png" // Put your photo here
+        alt="Commanding Officer"
+        className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+        onError={(e) => {
+          e.target.src = "https://via.placeholder.com/100/0f172a/3b82f6?text=CO";
+        }}
+      />
+    </div>
+  </motion.div>
+
+  {/* 3. THE BUSINESS NAME (Shilly Brittle) */}
+  <div className="flex flex-col leading-none">
+    <span className="text-xl md:text-2xl font-black italic tracking-tighter uppercase text-white group-hover:text-blue-400 transition-colors">
+      Shilly <span className="text-blue-500 group-hover:text-white transition-colors">Brittle</span>
+    </span>
+    <span className="text-[8px] font-bold tracking-[0.3em] uppercase text-slate-500 font-mono">
+      Cybersecurity Systems
+    </span>
+  </div>
+</Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest">
